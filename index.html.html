@@ -256,19 +256,15 @@ How can I assist you today?
 
     <script>
         // REPLACE THIS WITH YOUR N8N WEBHOOK URL
-        const WEBHOOK_URL = 'https://hussainshah85.app.n8n.cloud/webhook/clinic-chat';
+        const WEBHOOK_URL = 'https://syedzeeshanptcl.app.n8n.cloud/webhook/clinic-chat';
         
         const messagesDiv = document.getElementById('messages');
         const messageInput = document.getElementById('messageInput');
         const sendBtn = document.getElementById('sendBtn');
         const statusDiv = document.getElementById('status');
 
-        // Store session ID in browser storage for consistency
-let sessionId = localStorage.getItem('chatSessionId');
-if (!sessionId) {
-  sessionId = 'demo-' + Date.now();
-  localStorage.setItem('chatSessionId', sessionId);
-}
+        // Generate a unique session ID for this demo user
+        const sessionId = 'demo-' + Math.random().toString(36).substr(2, 9);
 
         function addMessage(text, isUser = false) {
             const messageDiv = document.createElement('div');
